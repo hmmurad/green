@@ -1,0 +1,19 @@
+
+    <!-- <a [routerLink]="['/recipes/new']" class="btn btn-success my-3">New Recipe</a> -->
+    <button type="button" (click)="onAddRecipe()" class="btn btn-success">New Recipe</button>
+    <ul class="list-group">
+      <li
+        class="list-group-item px-3 py-1 text-secondary"
+        type="button"
+        [routerLink]="['/recipes', recipe.id]"
+        *ngFor="let recipe of recipes">
+        <div class="float-left py-0">
+          <h5 class="mb-0">{{ recipe.title | uppercase}}</h5>
+          <p class="mb-0">{{ recipe.description }}</p>
+        </div>
+        <div class="float-right align-items-center">
+          <img class="rounded" [src]="recipe.imageUrl" style="max-height: 50px;" alt="">
+        </div>
+      </li>
+  </ul>
+

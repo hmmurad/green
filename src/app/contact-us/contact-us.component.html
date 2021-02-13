@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+  <div class="col-8 text-success">
+    <h2 class="text-uppercase mt-3 text-center lead">Message</h2>
+    <p class="text-center text-uppercase">Reactive Form</p>
+    <hr>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-6 lead">
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmitMessage()">
+      <div class="form-group">
+        <label> <strong>First Name</strong></label>
+        <input type="text" class="form-control" name="" id="" formControlName="firstName" placeholder="First Name">
+        <div class="alert alert-info" *ngIf="messageForm.get('firstName').touched && !messageForm.get('firstName').valid">
+          <span *ngIf="messageForm.get('firstName').hasError('required')">Enter your first name.</span>
+          <span *ngIf="messageForm.get('firstName').hasError('minlength')">Minimum 5 characters needed.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label> <strong>Last Name</strong></label>
+        <input type="text" class="form-control" name="" id="" formControlName="lastName" placeholder="Last Name">
+        <div class="alert alert-info" *ngIf="messageForm.get('lastName').touched && !messageForm.get('lastName').valid">
+          <span *ngIf="messageForm.get('lastName').hasError('required')">Enter your last name.</span>
+          <span *ngIf="messageForm.get('lastName').hasError('minlength')">Minimum 5 characters needed.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label><strong>Message</strong></label>
+        <textarea class="form-control" name="" id="" cols="30" rows="3" formControlName="message" placeholder="Enter your Message"></textarea>
+        <div class="alert alert-info" *ngIf="messageForm.get('message').touched && !messageForm.get('message').valid">
+          <span *ngIf="messageForm.get('message').hasError('required')">Enter your message.</span>
+          <span *ngIf="messageForm.get('message').hasError('minlength')">Minimum 5 characters needed.</span>
+        </div>
+      </div>
+
+      <button class="btn btn-dark" [disabled]="!messageForm.valid">Send</button>
+
+    </form>
+  </div>
+</div>
+

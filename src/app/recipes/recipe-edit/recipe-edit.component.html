@@ -1,0 +1,19 @@
+<div class="row mt-3 font-weight-bold">
+  <div class="col-md-12">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <div class="form-group">
+        <label>Recipe Name</label>
+        <input type="text" #title class="form-control" name="title" ngModel required>
+      </div>
+      <div class="form-group">
+        <label>Recipe Description</label>
+        <textarea #description cols="30" rows="2" class="form-control" name="description" ngModel required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Recipe Image</label>
+        <input type="text" class="form-control" name="imageUrl" ngModel placeholder="Enter Image Url" required>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!f.valid">Add Recipe</button>
+    </form>
+  </div>
+</div>
